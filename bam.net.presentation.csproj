@@ -42,11 +42,14 @@
     <Compile Remove="RouteHandlers\RouteHandlerManager.cs" />
     <Compile Remove="RouteHandlers\Attributes\PathHandlerAttribute.cs" />
     <Compile Remove="RouteHandlers\**" />
+    <Compile Remove="Tests\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="RouteHandlers\**" />
+    <EmbeddedResource Remove="Tests\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="RouteHandlers\**" />
+    <None Remove="Tests\**" />
   </ItemGroup>
 </Project>
