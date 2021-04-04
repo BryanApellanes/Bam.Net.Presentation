@@ -54,7 +54,7 @@ namespace Bam.Net.Presentation.Html
             return new DataTag(tagName, attributes, content);
         }
         
-        public static DataTag Of(string tagName, object attributes, Func<Tag> content)
+        public new static DataTag Of(string tagName, object attributes, Func<Tag> content)
         {
             return new DataTag(tagName, attributes, content);
         }

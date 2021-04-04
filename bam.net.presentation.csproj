@@ -8,6 +8,12 @@
     <Company>Three Headz</Company>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>\opt\bam\build\bam.net.presentation\debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>\opt\bam\build\bam.net.presentation\release</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BoneSoft.CSS" Version="1.0.0" />
     <PackageReference Include="CsQuery.Core" Version="2.0.1" />

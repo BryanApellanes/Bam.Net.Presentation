@@ -175,7 +175,7 @@ namespace Bam.Net.Presentation.Drawing
                 }
                 else
                 {
-                    throw ex;
+                    throw;
                 }
             }
         }
