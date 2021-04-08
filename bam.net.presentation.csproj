@@ -9,10 +9,10 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>\opt\bam\build\bam.net.presentation\debug\</OutputPath>
+    <OutputPath>\opt\bam\build\debug\bam.net.presentation\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <OutputPath>\opt\bam\build\bam.net.presentation\release</OutputPath>
+    <OutputPath>\opt\bam\build\release\bam.net.presentation\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BoneSoft.CSS" Version="1.0.0" />
