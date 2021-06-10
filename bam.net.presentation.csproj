@@ -3,7 +3,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Bam.Net.Presentation</RootNamespace>
     <PackageId>bam.net.presentation</PackageId>
-    <Version>1.0.5-test+db59fc1</Version>
+    <Version>1.0.6-test+e499a05</Version>
     <Authors>Bryan Apellanes</Authors>
     <Company>Three Headz</Company>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
