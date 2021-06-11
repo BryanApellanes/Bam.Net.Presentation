@@ -1,7 +1,7 @@
 ﻿<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>bam.net.presentation</id>
-    <version>1.0.6-test+91a9780</version>
+    <version>1.0.6-dd6425b</version>
     <authors>Bryan Apellanes</authors>
     <description>bam.net.presentation</description>
   </metadata>
