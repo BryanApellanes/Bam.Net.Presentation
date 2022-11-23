@@ -1,13 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Bam.Net.Presentation</RootNamespace>
     <PackageId>bam.net.presentation</PackageId>
-    <Version>1.0.5-test+3ca52cf</Version>
+    <Version>1.0.6-dev+2718559</Version>
     <Authors>Bryan Apellanes</Authors>
     <Company>Three Headz</Company>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <NuspecFile>bam.net.presentation.nuspec</NuspecFile>
+	  <IntermediatePackDir Condition=" '$(OS)' == 'Windows_NT' ">$(HOMEDRIVE)$(HOMEPATH)/.bam/build/pack/$(Configuration)/$(MSBuildThisFileName)/</IntermediatePackDir>
+	  <IntermediatePackDir Condition=" '$(OS)' == 'UNIX' ">$(HOME)/.bam/build/pack/$(Configuration)/$(MSBuildThisFileName)/</IntermediatePackDir>
+    <PublishDir>$(IntermediatePackDir)$(TargetFramework)/</PublishDir>
+    <NuspecProperties>publishDir=$([MSBuild]::NormalizeDirectory($(IntermediatePackDir)))</NuspecProperties>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>\opt\bam\build\debug\bam.net.presentation\</OutputPath>
+  </PropertyGroup>
+    <PropertyGroup>
+	    <OutputPath Condition=" '$(OS)' == 'Windows_NT' ">$(HOMEDRIVE)$(HOMEPATH)\.bam\build\$(Configuration)\$(MSBuildThisFileName)\</OutputPath>
+	    <OutputPath Condition=" '$(OS)' == 'UNIX' ">$(HOME)\.bam\build\$(Configuration)\$(MSBuildThisFileName)\</OutputPath>
+    </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BoneSoft.CSS" Version="1.0.0" />
     <PackageReference Include="CsQuery.Core" Version="2.0.1" />
@@ -35,18 +48,26 @@
     <DeployManifest Remove="obj\Debug\netcoreapp2.2\bam.net.presentation.drawing.application" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Bam.Net\_lib\bam.net.core\bam.net.core.csproj" />
-    <ProjectReference Include="..\bam.net.core\bam.net.core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Remove="RouteHandlers\RouteHandlerManager.cs" />
     <Compile Remove="RouteHandlers\Attributes\PathHandlerAttribute.cs" />
     <Compile Remove="RouteHandlers\**" />
+    <Compile Remove="Tests\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="RouteHandlers\**" />
+    <EmbeddedResource Remove="Tests\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="RouteHandlers\**" />
+    <None Remove="Tests\**" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\bam.core\bam.core.csproj" />
+  </ItemGroup>
+  <Target Name="PublishAll" BeforeTargets="GenerateNuspec">
+    <ItemGroup>
+      <_TargetFramework Include="$(TargetFrameworks)" />
+      <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Publish" Properties="TargetFramework=%(_TargetFramework.Identity)" />
+    </ItemGroup>
+  </Target>
 </Project>

@@ -18,7 +18,7 @@ namespace Bam.Net.Presentation.ActionProviders
             }
         }
         
-        public BackgroundThreadQueue<ExecutionRequest> ExecutionQueue { get; }
+        public BackgroundThreadQueue<ServiceProxyInvocationRequest> InvocationQueue { get; }
 
         public ActionExecutor RegisterViewModel(ViewModel viewModel)
         {
