@@ -1,13 +1,13 @@
 using System;
 using Bam.Net.Logging;
 using Bam.Net.ServiceProxy;
-using Bam.Net.ServiceProxy.Secure;
+using Bam.Net.ServiceProxy.Encryption;
 
 namespace Bam.Net.Presentation.ActionProviders
 {
     [Serializable]
     [Proxy("actionExecutor")]
-    [ApiKeyRequired]
+    [ApiHmacKeyRequired]
     public class ActionExecutor : Loggable
     {
         public ActionExecutor(ILogger logger = null)
@@ -18,7 +18,7 @@ namespace Bam.Net.Presentation.ActionProviders
             }
         }
         
-        public BackgroundThreadQueue<ExecutionRequest> ExecutionQueue { get; }
+        public BackgroundThreadQueue<ServiceProxyInvocationRequest> InvocationQueue { get; }
 
         public ActionExecutor RegisterViewModel(ViewModel viewModel)
         {
